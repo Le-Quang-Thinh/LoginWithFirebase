@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react'
 
-const Notifications=()=>{
-    return (
-        <div>
-            Notifications
-        </div>
-    )
+const Notifications = () => {
+  return (
+    <div>
+      <p>Notifications</p>
+    </div>
+  )
 }
 
-export default Notifications;
+export default Notifications

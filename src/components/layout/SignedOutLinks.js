@@ -1,17 +1,15 @@
-import React, { Component } from 'react';
-import {NavLink} from "react-router-dom";
+import React from 'react'
+import { NavLink } from 'react-router-dom'
 
-const SingedOutLinks =() =>{
-    return (
-        <ul className="right">
-            <li>
-                <NavLink to ="/singin">SingIn</NavLink>
-            </li>
-            <li>
-                <NavLink to ="/">LogIn</NavLink>
-            </li>
-        </ul>
-    )
+const SignedOutLinks = () => {
+  return (
+    <div>
+      <ul className="right">
+        <li><NavLink to='/signup'>Signup</NavLink></li>
+        <li><NavLink to='/signin'>Login</NavLink></li>
+      </ul>
+    </div>
+  )
 }
 
-export default SingedOutLinks;
+export default SignedOutLinks

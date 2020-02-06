@@ -6,7 +6,6 @@ class SignIn extends Component {
     password: ''
   }
   handleChange = (e) => {
-      console.log(e.target);
     this.setState({
       [e.target.id]: e.target.value
     })
