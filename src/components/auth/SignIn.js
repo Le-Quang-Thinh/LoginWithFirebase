@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import { Redirect } from "react-router-dom";
 class SignIn extends Component {
   state = {
     email: '',
@@ -12,9 +12,14 @@ class SignIn extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
+    this.props.signIn(this.state);
+   
   }
   render() {
+    const {authError }=this.props;
+    if(this.props.auth.uid)
+    return <Redirect to='/' />
+    else
     return (
       <div className="container">
         <form className="white" onSubmit={this.handleSubmit}>
@@ -29,6 +34,7 @@ class SignIn extends Component {
           </div>
           <div className="input-field">
             <button className="btn pink lighten-1 z-depth-0">Login</button>
+            {authError ? <p>{authError}</p>  : null}
           </div>
         </form>
       </div>

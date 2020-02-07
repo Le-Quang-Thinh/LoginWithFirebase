@@ -1,20 +1,21 @@
-import React from 'react'
+import React,{Component} from 'react'
 import { Link } from 'react-router-dom'
 import SignedInLinks from './SignedInLinks'
 import SignedOutLinks from './SignedOutLinks'
 
-const Navbar = () => {
-  return (
-    <nav className="nav-wrapper grey darken-3">
-      <div className="container">
-      <Link to='/' className="brand-logo">
-                    Kyomi
-                </Link> 
-        <SignedInLinks />
-        <SignedOutLinks />
-      </div>
-    </nav>
-  )
+class Navbar extends Component {
+  render() { 
+    const {auth} = this.props;
+    return (
+      <nav className="nav-wrapper grey darken-3">
+        <div className="container">
+        <Link to='/' className="brand-logo">
+            Kyomi
+        </Link> 
+        {auth.uid ?<SignedInLinks avatar={auth.photoURL} />: <SignedOutLinks />}
+        </div>
+      </nav>
+    )
 }
-
+}
 export default Navbar

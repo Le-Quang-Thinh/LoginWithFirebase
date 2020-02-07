@@ -1,13 +1,16 @@
-import { combineReducers } from "redux";
 import CreateProject from "../components/projects/CreateProject";
 import { connect } from 'react-redux'
 import {createProject} from "../actions/projectActions";
-
-const mapDispatchToProps = dispatch => {
+import { bindActionCreators } from "redux";
+const mapStateToProps = state => {
     return {
-      createProject: (project) => dispatch(createProject(project))
+     auth : state.firebase.auth
     }
 }
-
-export default connect(null,mapDispatchToProps)(CreateProject)
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    createProject
+  },dispatch)
+}
+export default connect(mapStateToProps,mapDispatchToProps)(CreateProject)
   

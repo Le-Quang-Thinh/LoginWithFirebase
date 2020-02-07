@@ -1,4 +1,4 @@
-import * as type from "../constants/projectConstant";
+import { CREATE_PROJECT } from "../constants/projectConstant";
 
 const initState = {
   projects: [
@@ -10,13 +10,12 @@ const initState = {
 
 const projectReducer = (state = initState, action) => {
   switch (action.type) {
-    case type.CREATE_PROJECT:
+    case CREATE_PROJECT:
       console.log('create project', action.project);
-  
+      return state;
     default:
-      break;
+      return state;
   }
-  return state;
 };
 
 export default projectReducer;

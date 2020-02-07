@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Redirect } from "react-router-dom";
 
 class CreateProject extends Component {
   state = {
@@ -12,10 +13,16 @@ class CreateProject extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
     this.props.createProject(this.state);
   }
   render() {
+    // console.log(this.props.auth);
+    const {auth}= this.props;
+    if(!auth.uid)  
+    return (
+      <Redirect to='/signin' />
+    )
+    else
     return (
       <div className="container">
         <form className="white" onSubmit={this.handleSubmit}>
