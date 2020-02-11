@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { Redirect } from "react-router-dom";
-
 class CreateProject extends Component {
   state = {
     title: '',
-    content: ''
+    content: '',
+    status:'success'
   }
   handleChange = (e) => {
     this.setState({
@@ -14,6 +14,10 @@ class CreateProject extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.createProject(this.state);
+    if(this.state.success==='success')
+    {
+      return (<Redirect to='/' />)
+    }
   }
   render() {
     // console.log(this.props.auth);

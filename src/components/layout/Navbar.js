@@ -5,14 +5,15 @@ import SignedOutLinks from './SignedOutLinks'
 
 class Navbar extends Component {
   render() { 
-    const {auth} = this.props;
+    const {auth,profile} = this.props;
+    console.log(profile);
     return (
       <nav className="nav-wrapper grey darken-3">
         <div className="container">
         <Link to='/' className="brand-logo">
             Kyomi
         </Link> 
-        {auth.uid ?<SignedInLinks avatar={auth.photoURL} />: <SignedOutLinks />}
+        {auth.uid ?<SignedInLinks avatar={profile.firstName} />: <SignedOutLinks />}
         </div>
       </nav>
     )

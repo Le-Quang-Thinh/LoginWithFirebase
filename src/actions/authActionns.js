@@ -25,3 +25,25 @@ export const logOut = () => {
           });
     }
   };
+
+  export const signUp =(data) =>{
+      return (dispatch,getState,{getFirebase,getFirestore})=>{
+            const firebase=getFirebase();
+            const firestore=getFirestore();
+            firebase.auth().createUserWithEmailAndPassword(
+                data.email, 
+                data.password
+              ).then(resp => {
+                return firestore.collection('users').doc(resp.user.uid).set({
+                  firstName: data.firstName,
+                  lastName: data.lastName,
+                  createdAt: new Date()
+                });
+              }).then(()=>{
+                    dispatch({type:type.SIGNUP_SUCCESS})
+                })
+                .catch(function(error) {
+                dispatch({type:type.SIGNUP_ERROR,error})
+              });
+      }
+  }

@@ -5,7 +5,6 @@ class ProjectDetails extends Component {
 
   render() { 
     const {project} = this.props
-    console.log(project)
     if(project){
       return (
         <div className="container section project-details">

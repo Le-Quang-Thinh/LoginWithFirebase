@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import {Redirect} from "react-router-dom"
 class SignUp extends Component {
   state = {
     email: '',
@@ -14,9 +14,15 @@ class SignUp extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
+    this.props.signUp(this.state);
     console.log(this.state);
   }
   render() {
+    if(!this.props.auth.isEmpty===true) 
+    return (
+      <Redirect to='/' />
+    )
+    else
     return (
       <div className="container">
         <form className="white" onSubmit={this.handleSubmit}>

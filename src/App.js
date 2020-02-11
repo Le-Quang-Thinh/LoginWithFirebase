@@ -4,7 +4,7 @@ import Navbar from './containers/dataNav'
 import Dashboard from './containers/dataListProject'
 import ProjectDetails from './containers/dataProjecDetail'
 import SignIn from './containers/dataLogin'
-import SignUp from './components/auth/SignUp'
+import SignUp from './containers/dataSingin'
 import CreateProject from './containers/CreateProject'
 
 class App extends Component {

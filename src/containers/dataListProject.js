@@ -3,7 +3,6 @@ import { compose } from "redux";
 import Dashboard from "../components/dashboard/Dashboard";
 import { firestoreConnect } from "react-redux-firebase";
 const mapStateToProps = (state) => {
-  // console.log(state)
     return {
       projects: state.firestore.ordered.projects,
       auth:state.firebase.auth
